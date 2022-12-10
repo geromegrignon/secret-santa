@@ -14,10 +14,13 @@
         <button tuiButton type="submit" (click)="addPerson()">Ajouter</button>
     </form>
 
+
+    <div>{{supported}}</div>
+
+    <button (click)="getContacts()">foo</button>
+
     <ul>
-        <li *ngFor="let c of contacts$ | async ">
-            {{c.name}}
-        </li>
+        <li *ngFor="let c of contacts">{{c}}</li>
     </ul>
     <button
             tuiButton
