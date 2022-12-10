@@ -13,6 +13,12 @@
         <tui-input #input formControlName="name" tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true"></tui-input>
         <button tuiButton type="submit" (click)="addPerson()">Ajouter</button>
     </form>
+
+    <ul>
+        <li *ngFor="let c of contacts$ | async ">
+            {{c.name}}
+        </li>
+    </ul>
     <button
             tuiButton
             type="button"

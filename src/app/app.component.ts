@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {from, Observable} from "rxjs";
 
 interface PersonForm {
   name: FormControl<string>;
@@ -14,6 +15,9 @@ export class AppComponent {
   people: any[] = [
     {name: 'Lucile'}
   ];
+
+  // @ts-ignore
+  contacts$: Observable<any[]> = from(navigator.contacts.select(['name', 'email', 'tel', 'address', 'icon'], {multiple: true}));
 
   form = new FormGroup<PersonForm>({
     name: new FormControl('', {nonNullable: true})
