@@ -1,1 +1,25 @@
-<secret-santa-nx-welcome></secret-santa-nx-welcome>
+<tui-root>
+    <h1>Nom des personnes pour l'événement</h1>
+    <ul>
+        <li *ngFor="let person of people">
+            <tui-svg class="icon" src="tuiIconStar">
+            </tui-svg>
+            <span>{{person.name}}</span>
+            <tui-svg class="icon delete-icon" src="tuiIconTrash" (click)="removePerson(person.name)">
+            </tui-svg>
+        </li>
+    </ul>
+    <form [formGroup]="form">
+        <tui-input #input formControlName="name" tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true"></tui-input>
+        <button tuiButton type="submit" (click)="addPerson()">Ajouter</button>
+    </form>
+    <button
+            tuiButton
+            type="button"
+            appearance="secondary"
+            class="next-step tui-space_right-3 tui-space_bottom-3"
+            iconRight="tuiIconArrowRight"
+    >
+        Suivant
+    </button>
+</tui-root>
